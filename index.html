@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Present Simple with Asyl🤍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Pastel Dreams -->
+    <!-- Application Structure Plan: The application is structured as a single-page, vertical-scrolling experience that mirrors the pedagogical flow of a lesson: introduction, rules, practice, and creative application. It's broken into thematic sections (Basics, Rules, Practice, etc.) to make the information digestible. Key interactions include a tabbed interface for grammar rules and interactive quiz elements with immediate feedback. This structure was chosen to transform the static worksheet into an engaging, active learning tool, which is more effective for a teenage learner by providing instant validation and a clear, guided path through the content. -->
+    <!-- Visualization & Content Choices: Report Info: Grammar rules -> Goal: Organize/Inform -> Presentation: Tabbed HTML content blocks -> Interaction: User clicks tabs to switch between affirmative, negative, and question forms -> Justification: Prevents information overload and cleanly separates related concepts. Report Info: Practice questions -> Goal: Test Knowledge -> Presentation: Interactive HTML forms (inputs, buttons) -> Interaction: User submits answers and gets immediate correct/incorrect feedback via JS -> Justification: Active recall and instant feedback are superior to passively filling out a static worksheet. Report Info: Creative writing prompt -> Goal: Apply Knowledge -> Presentation: Styled textarea resembling a social media post -> Interaction: User typing -> Justification: Connects grammar to a familiar, real-world context for a teenager. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        .tab-button.active {
+            background-color: #f472b6;
+            color: white;
+        }
+        .feedback-correct {
+            border-color: #34d399 !important;
+            box-shadow: 0 0 0 2px #34d399;
+        }
+        .feedback-incorrect {
+            border-color: #f87171 !important;
+            box-shadow: 0 0 0 2px #f87171;
+        }
+    </style>
+</head>
+<body class="bg-rose-50 text-gray-800">
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-pink-500">Present Simple with Asyl🤍</h1>
+            <p class="text-lg mt-4 text-gray-600">Are you ready to get sporty with grammar? Let's go! 🏐✨</p>
+        </header>
+
+        <main>
+            <!-- Section 1: What is Present Simple? -->
+            <section id="basics" class="mb-12 bg-white p-6 rounded-2xl shadow-lg">
+                <h2 class="text-3xl font-bold text-pink-500 mb-4">What is the Present Simple?</h2>
+                <p class="mb-6 text-gray-700">We use the Present Simple to talk about things that are habits or routines, facts, and things we like or dislike. It's the tense for 'always true' or 'true for a long time'.</p>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-purple-100 p-4 rounded-xl">
+                        <h3 class="font-bold text-lg text-purple-800">Habits & Routines 🏐</h3>
+                        <p class="text-purple-700 mt-2">I <strong class="font-bold">play</strong> volleyball after school.</p>
+                    </div>
+                    <div class="bg-sky-100 p-4 rounded-xl">
+                        <h3 class="font-bold text-lg text-sky-800">Facts ☀️</h3>
+                        <p class="text-sky-700 mt-2">The sun <strong class="font-bold">rises</strong> in the east.</p>
+                    </div>
+                    <div class="bg-amber-100 p-4 rounded-xl">
+                        <h3 class="font-bold text-lg text-amber-800">Likes & Dislikes 🎭</h3>
+                        <p class="text-amber-700 mt-2">She <strong class="font-bold">loves</strong> dramas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: How to Use It -->
+            <section id="rules" class="mb-12 bg-white p-6 rounded-2xl shadow-lg">
+                <h2 class="text-3xl font-bold text-pink-500 mb-4">How to Use It</h2>
+                <p class="mb-6 text-gray-700">The verb form changes a little bit depending on the subject. Let's see how it works. Click the tabs below to explore!</p>
+                <div class="mb-4 flex justify-center space-x-2 p-1 bg-pink-100 rounded-full">
+                    <button class="tab-button flex-1 py-2 px-4 rounded-full font-bold transition-colors duration-300 active" onclick="showTab('affirmative')">Affirmative (+)</button>
+                    <button class="tab-button flex-1 py-2 px-4 rounded-full font-bold transition-colors duration-300" onclick="showTab('negative')">Negative (-)</button>
+                    <button class="tab-button flex-1 py-2 px-4 rounded-full font-bold transition-colors duration-300" onclick="showTab('question')">Question (?)</button>
+                </div>
+
+                <div id="affirmative" class="tab-content">
+                    <p class="text-center text-gray-600 mb-4">This is for saying 'yes' sentences.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="p-3 bg-rose-100 font-bold rounded-tl-lg">Subject</th>
+                                    <th class="p-3 bg-rose-100 font-bold rounded-tr-lg">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-rose-200">
+                                    <td class="p-3 font-semibold">I / You / We / They</td>
+                                    <td class="p-3">I <strong class="text-pink-600">play</strong> volleyball.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">He / She / It</td>
+                                    <td class="p-3">She <strong class="text-pink-600">listens</strong> to Adele.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="negative" class="tab-content hidden">
+                    <p class="text-center text-gray-600 mb-4">This is for saying 'no' sentences. We use `don't` or `doesn't`.</p>
+                    <div class="overflow-x-auto">
+                         <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="p-3 bg-rose-100 font-bold rounded-tl-lg">Subject</th>
+                                    <th class="p-3 bg-rose-100 font-bold rounded-tr-lg">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-rose-200">
+                                    <td class="p-3 font-semibold">I / You / We / They</td>
+                                    <td class="p-3">I <strong class="text-pink-600">don't play</strong> volleyball.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">He / She / It</td>
+                                    <td class="p-3">She <strong class="text-pink-600">doesn't listen</strong> to Adele.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div id="question" class="tab-content hidden">
+                    <p class="text-center text-gray-600 mb-4">This is for asking questions. We start with `Do` or `Does`.</p>
+                     <div class="overflow-x-auto">
+                         <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="p-3 bg-rose-100 font-bold rounded-tl-lg">Subject</th>
+                                    <th class="p-3 bg-rose-100 font-bold rounded-tr-lg">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-rose-200">
+                                    <td class="p-3 font-semibold">I / You / We / They</td>
+                                    <td class="p-3"><strong class="text-pink-600">Do</strong> you <strong class="text-pink-600">play</strong> volleyball?</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">He / She / It</td>
+                                    <td class="p-3"><strong class="text-pink-600">Does</strong> she <strong class="text-pink-600">listen</strong> to Adele?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-pink-100 p-4 rounded-xl border-l-4 border-pink-400">
+                    <h3 class="font-extrabold text-xl text-pink-800 mb-2">Remember the Rules! 🤯</h3>
+                    <p class="mb-4 text-pink-700">For **he, she, it**, we add an **-s** to the verb!</p>
+                    <ul class="list-disc list-inside space-y-2 text-pink-900">
+                        <li>Verbs ending in **-o, -sh, -ch, -ss, -x, -z**: add **-es** (e.g., watch → watch<strong class="font-bold">es</strong>)</li>
+                        <li>Verbs ending in **consonant + y**: change **-y** to **-i** and add **-es** (e.g., study → stud<strong class="font-bold">ies</strong>)</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 3: Time Expressions -->
+            <section id="time" class="mb-12 bg-white p-6 rounded-2xl shadow-lg">
+                <h2 class="text-3xl font-bold text-pink-500 mb-4">Time Expressions</h2>
+                <p class="mb-6 text-gray-700">These words help us show how often something happens. They usually go before the main verb.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="bg-green-200 text-green-800 font-bold py-2 px-4 rounded-full">always</span>
+                    <span class="bg-green-200 text-green-800 font-bold py-2 px-4 rounded-full">usually</span>
+                    <span class="bg-yellow-200 text-yellow-800 font-bold py-2 px-4 rounded-full">often</span>
+                    <span class="bg-yellow-200 text-yellow-800 font-bold py-2 px-4 rounded-full">sometimes</span>
+                    <span class="bg-red-200 text-red-800 font-bold py-2 px-4 rounded-full">never</span>
+                    <span class="bg-blue-200 text-blue-800 font-bold py-2 px-4 rounded-full">every day</span>
+                </div>
+            </section>
+
+            <!-- Section 4: Practice Zone -->
+            <section id="practice" class="mb-12">
+                <h2 class="text-3xl font-bold text-pink-500 mb-6 text-center">Practice Zone!</h2>
+                
+                <div class="space-y-8">
+                    <!-- Task 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Task 1: Fill in the Blanks</h3>
+                        <p class="mb-4 text-gray-600">Type the correct form of the verb in the box.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-2">
+                                <span>1. Asyl</span>
+                                <input type="text" data-answer="loves" placeholder="(love)" class="quiz-input p-2 border-2 border-gray-300 rounded-md transition-all">
+                                <span>volleyball! She</span>
+                                 <input type="text" data-answer="plays" placeholder="(play)" class="quiz-input p-2 border-2 border-gray-300 rounded-md transition-all">
+                                <span>it every day.</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>2. We</span>
+                                <input type="text" data-answer="watch" placeholder="(watch)" class="quiz-input p-2 border-2 border-gray-300 rounded-md transition-all">
+                                <span>a new drama on Fridays.</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>3. My friends and I</span>
+                                <input type="text" data-answer="travel" placeholder="(travel)" class="quiz-input p-2 border-2 border-gray-300 rounded-md transition-all">
+                                <span>to Italy in our dreams. 🇮🇹</span>
+                            </div>
+                        </div>
+                         <button onclick="checkInputs(this)" class="mt-4 bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-pink-600 transition-colors">Check Answers</button>
+                    </div>
+
+                    <!-- Task 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Task 2: Choose the Correct Form</h3>
+                         <p class="mb-4 text-gray-600">Click the right answer to see if you're correct!</p>
+                         <div class="space-y-3">
+                             <p>1. Asyl <button class="quiz-choice p-1 px-2 rounded-md bg-gray-200 hover:bg-pink-200" data-correct="false">go</button> / <button class="quiz-choice p-1 px-2 rounded-md bg-gray-200 hover:bg-pink-200" data-correct="true">goes</button> to school by bus.</p>
+                             <p>2. I <button class="quiz-choice p-1 px-2 rounded-md bg-gray-200 hover:bg-pink-200" data-correct="true">drink</button> / <button class="quiz-choice p-1 px-2 rounded-md bg-gray-200 hover:bg-pink-200" data-correct="false">drinks</button> a lot of water after practice.</p>
+                             <p>3. We <button class="quiz-choice p-1 px-2 rounded-md bg-gray-200 hover:bg-pink-200" data-correct="true">watch</button> / <button class="quiz-choice p-1 px-2 rounded-md bg-gray-200 hover:bg-pink-200" data-correct="false">watches</button> the sunset from the window.</p>
+                         </div>
+                    </div>
+
+                     <!-- Task 3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Task 3: Correct the Mistakes</h3>
+                        <p class="mb-4 text-gray-600">Find the mistake in the sentence and type the correction.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-red-500 italic">"She go to Italy every day."</p>
+                                <input type="text" data-answer="She goes to Italy every day." placeholder="Your correction..." class="quiz-input w-full mt-1 p-2 border-2 border-gray-300 rounded-md transition-all">
+                            </div>
+                             <div>
+                                <p class="text-red-500 italic">"I not listen to sad music."</p>
+                                <input type="text" data-answer="I don't listen to sad music." placeholder="Your correction..." class="quiz-input w-full mt-1 p-2 border-2 border-gray-300 rounded-md transition-all">
+                            </div>
+                             <div>
+                                <p class="text-red-500 italic">"They watches dramas."</p>
+                                <input type="text" data-answer="They watch dramas." placeholder="Your correction..." class="quiz-input w-full mt-1 p-2 border-2 border-gray-300 rounded-md transition-all">
+                            </div>
+                        </div>
+                        <button onclick="checkInputs(this)" class="mt-4 bg-pink-500 text-white font-bold py-2 px-6 rounded-full hover:bg-pink-600 transition-colors">Check Answers</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Speaking and Writing -->
+             <section id="creative" class="mb-12">
+                <h2 class="text-3xl font-bold text-pink-500 mb-6 text-center">Your Turn!</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                     <div class="bg-white p-6 rounded-2xl shadow-lg">
+                         <h3 class="text-2xl font-bold text-gray-800 mb-4">🗣️ Let's Talk!</h3>
+                         <p class="mb-4 text-gray-600">Ask a friend these questions, or answer them yourself out loud!</p>
+                         <ul class="space-y-3">
+                             <li>
+                                 <p><strong>Q:</strong> Do you play volleyball every day?</p>
+                                 <p class="text-green-600"><strong>A:</strong> Yes, I do. / No, I don't.</p>
+                             </li>
+                              <li>
+                                 <p><strong>Q:</strong> Does your friend watch dramas?</p>
+                                 <p class="text-green-600"><strong>A:</strong> Yes, she does. / No, she doesn't.</p>
+                             </li>
+                              <li>
+                                 <p><strong>Q:</strong> Do you dream of traveling to Italy?</p>
+                                 <p class="text-green-600"><strong>A:</strong> Yes, I do! ✈️</p>
+                             </li>
+                         </ul>
+                     </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">✍️ A Day in My Life</h3>
+                        <p class="mb-4 text-gray-600">Write a short Instagram-style post (4-5 sentences) using the Present Simple.</p>
+                        <div class="bg-gray-50 border border-gray-300 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-pink-300 flex items-center justify-center font-bold text-white text-xl">A</div>
+                                <div class="ml-3 font-bold">asylaiym_vball</div>
+                            </div>
+                            <textarea class="w-full h-32 bg-transparent border-0 focus:ring-0 p-0 resize-none text-gray-800" placeholder="My day is always busy..."></textarea>
+                            <div class="text-gray-500 mt-2 text-sm">❤️  нравится: 105</div>
+                        </div>
+                     </div>
+                </div>
+             </section>
+        </main>
+        
+        <footer class="text-center mt-12 py-6 border-t-2 border-rose-200">
+            <p class="text-gray-600 font-bold">Great job, Asyl! Keep practicing! 🎉</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(tabName).classList.remove('hidden');
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function checkInputs(button) {
+            const parent = button.parentElement;
+            const inputs = parent.querySelectorAll('.quiz-input');
+            inputs.forEach(input => {
+                const userAnswer = input.value.trim().toLowerCase().replace(/[.!?]/g, '');
+                const correctAnswer = input.dataset.answer.trim().toLowerCase().replace(/[.!?]/g, '');
+                input.classList.remove('feedback-correct', 'feedback-incorrect');
+                if (userAnswer === correctAnswer) {
+                    input.classList.add('feedback-correct');
+                } else {
+                    input.classList.add('feedback-incorrect');
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const choices = document.querySelectorAll('.quiz-choice');
+            choices.forEach(choice => {
+                choice.addEventListener('click', () => {
+                    const isCorrect = choice.dataset.correct === 'true';
+                    choice.classList.remove('bg-gray-200', 'hover:bg-pink-200');
+                    if (isCorrect) {
+                        choice.classList.add('bg-green-400', 'text-white');
+                    } else {
+                        choice.classList.add('bg-red-400', 'text-white');
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
